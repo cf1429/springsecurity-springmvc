@@ -37,6 +37,7 @@
     <build>
         <finalName>springsecurity-springmvc</finalName>
         <pluginManagement>
+            <!--配置tomcat启动插件-->
             <plugins>
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
