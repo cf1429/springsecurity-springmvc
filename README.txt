@@ -3,3 +3,6 @@ a、在Edit Configurations 中添加一个maven配置
 b、在name中添加项目名称
 c、在Parameters -> Command line 中添加 clean tomcat7:run
 d、通过debug启动项目
+
+项目版本讲解：
+至此之前的版本皆是通过session实现认证授权的代码
