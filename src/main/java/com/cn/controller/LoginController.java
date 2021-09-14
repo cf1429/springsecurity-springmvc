@@ -52,4 +52,16 @@ public class LoginController {
         return fullname+"访问资源";
     }
 
+    /**
+     * 退出
+     * @param httpSession
+     * @return
+     */
+    @RequestMapping(value = "/logout", produces = "text/plain;charset=utf-8")
+    public String logout(HttpSession httpSession){
+        // 清空session中的用户信息
+        httpSession.removeAttribute(UserDto.SESSION_USER_KEY);
+        return "退出成功";
+    }
+
 }
