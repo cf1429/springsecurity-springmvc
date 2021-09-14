@@ -3,6 +3,8 @@ package com.cn.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.Set;
+
 /**
  * @Author:chenf
  * @Date:2021/9/14 15:38
@@ -19,4 +21,9 @@ public class UserDto {
     private String password;
     private String fullname;
     private String mobile;
+
+    /**
+     * 用户权限
+     */
+    private Set<String> authers;
 }

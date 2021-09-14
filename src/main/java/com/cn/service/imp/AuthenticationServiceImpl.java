@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @Author:chenf
@@ -42,7 +44,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private Map<String,UserDto> userMap = new HashMap<>();
     // 静态代码块初始化数据，用来充当db存储数据
     {
-        userMap.put("zhangsan",new UserDto("1010","zhangsan","1234","张三","123456"));
-        userMap.put("lisi",new UserDto("1011","lisi","1234","李四","123456"));
+        // 模拟数据权限，可以访问的接口
+        Set<String> set1 = new HashSet<>();
+        set1.add("testSession1");   // testSession1 充当/test/testSession1
+        Set<String> set2 = new HashSet<>();
+        set2.add("testSession2");   // testSession2 充当/test/testSession2
+
+
+        userMap.put("zhangsan",new UserDto("1010","zhangsan","1234","张三","123456",set1));
+        userMap.put("lisi",new UserDto("1011","lisi","1234","李四","123456",set2));
     }
 }

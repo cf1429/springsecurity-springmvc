@@ -39,8 +39,27 @@ public class LoginController {
      * @param httpSession
      * @return
      */
-    @RequestMapping(value = "/test/testSession",produces = "text/plain;charset=utf-8" )
-    public String testSession(HttpSession httpSession){
+    @RequestMapping(value = "/test/testSession1",produces = "text/plain;charset=utf-8" )
+    public String testSession1(HttpSession httpSession){
+        String fullname = null;
+        Object obj = httpSession.getAttribute(UserDto.SESSION_USER_KEY);
+        if(obj == null ){
+            fullname = "匿名用户";
+        }else{
+            UserDto userDto = (UserDto) obj;
+            fullname = userDto.getFullname();
+        }
+        return fullname+"访问资源";
+    }
+
+
+    /**
+     * 测试session会话，通过从session中获取用户信息来判断是否登录过
+     * @param httpSession
+     * @return
+     */
+    @RequestMapping(value = "/test/testSession2",produces = "text/plain;charset=utf-8" )
+    public String testSession2(HttpSession httpSession){
         String fullname = null;
         Object obj = httpSession.getAttribute(UserDto.SESSION_USER_KEY);
         if(obj == null ){
